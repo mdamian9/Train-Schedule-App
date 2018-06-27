@@ -19,18 +19,49 @@ var trains = [
     }
 ];
 
-for (var i = 0; i < trains.length; i++) {
-    var newTrain = $("<tr><td id='name'>" + trains[i].name + "</td><td id='destination'>" + trains[i].destination +
-        "</td><td id='frequency'>" + trains[i].frequency + " min</td><td id='next-arrival'>" + 0 +
-        "</td><td id='min-away'>" + 0 + "</td></tr>");
-    $("#table-body").append(newTrain);
-}
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyA-vmRxEA6HAVtFMjpz6c9q3sj6t6YcwDo",
+    authDomain: "train-schedule-data.firebaseapp.com",
+    databaseURL: "https://train-schedule-data.firebaseio.com",
+    projectId: "train-schedule-data",
+    storageBucket: "train-schedule-data.appspot.com",
+    messagingSenderId: "937700658251"
+};
+firebase.initializeApp(config);
 
-$("#submit-train").on("click", function(e) {
+// database.ref().set({
+//     trains: trains
+// });
+
+for (var i = 0; i < trains.length; i++) {
+    var nextArrival = 0;
+    var minAway = 0;
+    var newTrain = $("<tr><td id='name'>" + trains[i].name + "</td><td id='destination'>" + trains[i].destination +
+        "</td><td id='frequency'>" + trains[i].frequency + " min</td><td id='next-arrival'>" + nextArrival +
+        "</td><td id='min-away'>" + minAway + "</td></tr>");
+    $("#table-body").append(newTrain);
+};
+
+// Submit train event
+$("#submit-train").on("click", function (e) {
+
+    console.log("works");
 
     e.preventDefault();
-    // alert("submit works");
+
+    // Save our input values for further usage
+    var name = $("#name-input").val().trim();
+    var destination = $("#destination-input").val().trim();
+    var firstTime = $("#first-time-input").val().trim();
+    var frequency = $("#frequency-input").val().trim();
+
+    var nextArrival = 0;
+    var minAway = 0;
+
+    var newTrain = $("<tr><td id='name'>" + name + "</td><td id='destination'>" + destination + "</td><td id='frequency'>" + frequency +
+        " min</td><td id='next-arrival'>" + nextArrival + "</td><td id='min-away'>" + minAway + "</td></tr>");
+    $("#table-body").append(newTrain);
+
 });
 
-
-// Need to populate train information using a loop - can't append new train row
