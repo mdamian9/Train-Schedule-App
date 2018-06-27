@@ -15,15 +15,11 @@
 
 <body>
 
-    <div id="container">
+    <div class="container">
 
         <div id="head-container">
-            <p>
-                <h1>Train Schedule List!</h1>
-            </p>
-            <p>
-                <h2>Choo choo!</h2>
-            </p>
+            <h1>Train Schedule List!</h1>
+            <h2>Choo choo!</h2>
         </div>
 
         <br>
@@ -33,16 +29,16 @@
                 <span id="head-span">Train Schedule:</span>
             </h3>
             <table class="table">
-                <thead>
+                <thead id="table-head">
                     <tr>
                         <th scope="col">Train Name</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Frequency (min)</th>
                         <th scope="col">Next Arrival</th>
-                        <th scope="col">Minutes</th>
+                        <th scope="col">Minutes Away</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
 
                 </tbody>
             </table>
@@ -56,30 +52,32 @@
             </h3>
             <form>
                 <div class="form-group">
-                    <label for="trainName">Train Name</label>
-                    <input type="name" class="form-control" id="train-name" placeholder="Enter train name">
+                    <label for="trainName" id="label">Train Name</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="Enter train name">
                 </div>
                 <div class="form-group">
-                    <label for="destination">Destination</label>
-                    <input type="destination" class="form-control" id="train-destination" placeholder="Enter destination">
+                    <label for="destination" id="label">Destination</label>
+                    <input type="text" class="form-control" id="destination-input" placeholder="Enter destination">
                 </div>
                 <div class="form-group">
-                    <label for="firstTrainTime">First Train Time (HH:mm - military time)</label>
-                    <input type="firstTrainTime" class="form-control" id="first-train" placeholder="Enter first train time">
+                    <label for="firstTrainTime" id="label">First Train Time (HH:mm - military time)</label>
+                    <input type="text" class="form-control" id="first-time-input" placeholder="Enter first train time">
                 </div>
                 <div class="form-group">
-                    <label for="frequency">Frequency (min)</label>
-                    <input type="frequency" class="form-control" id="train-frequency" placeholder="Enter frequency">
+                    <label for="frequency" id="label">Frequency (min)</label>
+                    <input type="text" class="form-control" id="frequency-input" placeholder="Enter frequency">
                 </div>
-                <button type="submit" class="btn btn-primary" id="submit-form">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submit-train">Submit</button>
             </form>
         </div>
 
     </div>
 
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
 
