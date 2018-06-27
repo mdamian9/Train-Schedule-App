@@ -1,0 +1,44 @@
+body {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: bold;
+    width: 75%
+}
+
+#head-container {
+    text-align: center;
+    background: blue;
+    color: white;
+    font-weight: bold;
+    margin: 5px auto;
+    border-radius: 5px;
+}
+
+#row-header {
+    background: blue;
+    padding: 5px;
+}
+
+#head-span {
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+}
+
+#trains-list {
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+#form {
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+#submit-form {
+    margin: 5px;
+}
+
+.form-group {
+    margin: 5px;
+}
