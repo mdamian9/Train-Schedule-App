@@ -59,6 +59,7 @@ $("#submit-train").on("click", function (e) {
     var nextArrival = 0;
     var minAway = 0;
 
+    // Appends train that was submitted
     var newTrain = $("<tr><td id='name'>" + name + "</td><td id='destination'>" + destination + "</td><td id='frequency'>" + frequency +
         " min</td><td id='next-arrival'>" + nextArrival + "</td><td id='min-away'>" + minAway + "</td></tr>");
     $("#table-body").append(newTrain);
