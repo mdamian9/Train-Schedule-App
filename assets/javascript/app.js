@@ -44,8 +44,6 @@ for (var i = 0; i < trains.length; i++) {
 // Submit train event
 $("#submit-train").on("click", function (e) {
 
-    console.log("works");
-
     e.preventDefault();
 
     // Save our input values for further usage
@@ -68,22 +66,28 @@ $("#submit-train").on("click", function (e) {
 
 });
 
-database.ref().on("child_added", function(snap) {
+database.ref().on("child_added", function (snap) {
 
     var name = snap.val().train_name;
     var destination = snap.val().train_destination;
     var firstTime = snap.val().first_time;
     var frequency = snap.val().train_frequency;
 
-    var nextArrival = 0;
-    var minAway = 0;
+    var currentTime = (moment().format('MMMM Do YYYY, h:mm:ss a'));
 
-    // Appends train that was submitted
-    var newTrain = $("<tr><td id='name'>" + name + "</td><td id='destination'>" + destination + "</td><td id='frequency'>" +
-        frequency + " min</td><td id='next-arrival'>" + nextArrival + "</td><td id='min-away'>" + minAway + "</td></tr>");
-    $("#table-body").append(newTrain);
+var nextArrival = 0;
+var minAway = 0;
+
+// Appends train that was submitted
+var newTrain = $("<tr><td id='name'>" + name + "</td><td id='destination'>" + destination + "</td><td id='frequency'>" +
+    frequency + " min</td><td id='next-arrival'>" + nextArrival + "</td><td id='min-away'>" + minAway + "</td></tr>");
+$("#table-body").append(newTrain);
 
 });
+
+console.log(moment().format('h:mm:ss a'));
+var hour = moment().format('h a');
+console.log(hour);
 
 // store data in database
 // get data from database
