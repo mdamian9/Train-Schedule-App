@@ -30,9 +30,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// database.ref().set({
-//     trains: trains
-// });
+var database = firebase.database();
 
 for (var i = 0; i < trains.length; i++) {
     var nextArrival = 0;
@@ -56,13 +54,37 @@ $("#submit-train").on("click", function (e) {
     var firstTime = $("#first-time-input").val().trim();
     var frequency = $("#frequency-input").val().trim();
 
+    $("#name-input").val("");
+    $("#destination-input").val("");
+    $("#first-time-input").val("");
+    $("#frequency-input").val("");
+
+    database.ref().push({
+        train_name: name,
+        train_destination: destination,
+        first_time: firstTime,
+        train_frequency: frequency
+    });
+
+});
+
+database.ref().on("child_added", function(snap) {
+
+    var name = snap.val().train_name;
+    var destination = snap.val().train_destination;
+    var firstTime = snap.val().first_time;
+    var frequency = snap.val().train_frequency;
+
     var nextArrival = 0;
     var minAway = 0;
 
     // Appends train that was submitted
-    var newTrain = $("<tr><td id='name'>" + name + "</td><td id='destination'>" + destination + "</td><td id='frequency'>" + frequency +
-        " min</td><td id='next-arrival'>" + nextArrival + "</td><td id='min-away'>" + minAway + "</td></tr>");
+    var newTrain = $("<tr><td id='name'>" + name + "</td><td id='destination'>" + destination + "</td><td id='frequency'>" +
+        frequency + " min</td><td id='next-arrival'>" + nextArrival + "</td><td id='min-away'>" + minAway + "</td></tr>");
     $("#table-body").append(newTrain);
 
 });
+
+// store data in database
+// get data from database
 
