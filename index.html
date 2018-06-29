@@ -15,8 +15,9 @@
 
 <body>
 
-    <div class="container">
+    <div>
 
+        <!-- Top Header / Title -->
         <header id="top-header">
             <h2>Train Schedule List!</h2>
             <h4>Choo choo!</h4>
@@ -24,6 +25,7 @@
 
         <br>
 
+        <!-- Will hold a table with the list of trains -->
         <div id="trains-list">
             <h3 id="row-header">
                 <span id="head-span">Train Schedule:</span>
@@ -38,6 +40,7 @@
                         <th scope="col">Minutes Away</th>
                     </tr>
                 </thead>
+                <!-- Table body, data will be appended here as table rows -->
                 <tbody id="table-body">
 
                 </tbody>
@@ -46,33 +49,33 @@
 
         <br>
 
+        <!-- Will hold train input form -->
         <div id="form">
             <h3 id="row-header">
-                <span id="head-span">Add a train:</span>
+                <span id="head-span">Add your favorite train to the schedule:</span>
             </h3>
             <form>
                 <div class="form-group">
                     <label for="trainName" id="label">Train Name</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="Enter train name">
+                    <input type="text" class="form-control" id="name-input" placeholder="Enter train name" required>
                 </div>
                 <div class="form-group">
                     <label for="destination" id="label">Destination</label>
-                    <input type="text" class="form-control" id="destination-input" placeholder="Enter destination">
+                    <input type="text" class="form-control" id="destination-input" placeholder="Enter destination" required>
                 </div>
                 <div class="form-group">
                     <label for="firstTrainTime" id="label">First Train Time (HH:mm - military time)</label>
-                    <input type="text" class="form-control" id="first-time-input" placeholder="Enter first train time">
+                    <input type="text" class="form-control" id="first-time-input" placeholder="Enter first train time" required>
                 </div>
                 <div class="form-group">
                     <label for="frequency" id="label">Frequency (min)</label>
-                    <input type="text" class="form-control" id="frequency-input" placeholder="Enter frequency">
+                    <input type="text" class="form-control" id="frequency-input" placeholder="Enter frequency" required>
                 </div>
                 <button type="submit" class="btn btn-primary" id="submit-train">Submit</button>
             </form>
         </div>
 
     </div>
-
 
     <!-- Firebase, jQuery, Moment.js & app.js -->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>

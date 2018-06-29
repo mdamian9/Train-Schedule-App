@@ -1,11 +1,7 @@
 body {
     background: rgb(145, 14, 14);
-    width: 75%;
-    margin: 0 auto;
-}
-
-.container {
-    margin: 20px;
+    width: 60%;
+    margin: 20px auto;
 }
 
 #top-header {
@@ -25,14 +21,12 @@ body {
 
 #row-header {
     background: white;
-    color: black;
     padding: 5px;
 }
 
 #head-span {
     color: black;
     font-weight: bold;
-    margin: 5px;
 }
 
 #trains-list {
